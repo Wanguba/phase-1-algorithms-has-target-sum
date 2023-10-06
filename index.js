@@ -32,3 +32,23 @@ if (require.main === module) {
 }
 
 module.exports = hasTargetSum;
+
+function hasTargetSum(arr, target) {
+  
+  const seen = {};
+
+  for (let i = 0; i < arr.length; i++) {
+      const currentNum = arr[i];
+      const complement = target - currentNum;
+
+      if (seen[complement]) {
+          return true;
+      }
+
+      seen[currentNum] = true;
+  }
+
+  return false;
+}
+
+
